@@ -90,8 +90,7 @@ public class MainFrame extends JFrame {
 				}
 				for (int i = 0; i < array.length; i++) {
 					if(array[i].isFile()) {
-						//2.将文件修改名称 格式：2018-02-10-A20180210203210819.md  不能超过50个字符
-						long nowLong = Long.parseLong(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()));
+						long nowLong = System.currentTimeMillis();
 						File from = array[i];
 						File backup = new File(_backup+"\\"+nowLong+"——"+from.getName());
 						String fileNew = from.getName();
