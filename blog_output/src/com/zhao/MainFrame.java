@@ -90,10 +90,14 @@ public class MainFrame extends JFrame {
 				}
 				for (int i = 0; i < array.length; i++) {
 					if(array[i].isFile()) {
-						long nowLong = System.currentTimeMillis();
 						File from = array[i];
-						File backup = new File(_backup+"\\"+nowLong+"——"+from.getName());
 						String fileNew = from.getName();
+						if(fileNew.indexOf(".md")<0) {
+							continue;
+						}
+						long nowLong = System.currentTimeMillis();
+						File backup = new File(_backup+"\\"+nowLong+"——"+from.getName());
+						
 						fileNew = fileNew.substring(0, 11)+nowLong+".md";
 						File posts = new File(_posts+"\\"+fileNew);
 						try {
